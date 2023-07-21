@@ -1,4 +1,3 @@
-import { PrismaClient } from "@prisma/client"
 import express from "express"
 import * as dotenv from "dotenv"
 import helmet from "helmet"
@@ -9,7 +8,6 @@ import jpostcode from "./routes/jpostcode"
 dotenv.config()
 
 const app = express()
-const prisma = new PrismaClient()
 const port = process.env.PORT || 3100
 
 app.use(express.json())
