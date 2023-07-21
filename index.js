@@ -13,12 +13,6 @@ const port = process.env.PORT || 3100
 
 app.use(express.json())
 app.use(cookieParser())
-// app.use(
-//   express.session({
-//     secret: "token",
-//     cookie: { secure: true, httpOnly: true },
-//   })
-// )
 app.use(helmet())
 
 const corsOptions = {
