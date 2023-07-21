@@ -5,9 +5,15 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "dev": "node index.js"
+    "start": "node index.js",
+    "build": "babel index.js -d dist"
   },
   "dependencies": {
+    "@babel/cli": "^7.22.6",
+    "@babel/core": "^7.22.8",
+    "@babel/node": "^7.22.6",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.22.7",
     "@prisma/client": "^5.0.0",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.3.1",
