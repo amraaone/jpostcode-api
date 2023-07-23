@@ -5,8 +5,8 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js",
-    "build": "yarn prisma generate && babel index.js -d public"
+    "start": "node public/index.js",
+    "build": "babel index.js -d public"
   },
   "dependencies": {
     "@babel/cli": "^7.22.6",
@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "cors": "^2.8.5",
-    "helmet": "^7.0.0"
+    "helmet": "^7.0.0",
+    "mongodb-memory-server-core": "^8.13.0"
   }
 }

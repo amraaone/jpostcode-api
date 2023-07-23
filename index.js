@@ -4,6 +4,7 @@ import * as dotenv from "dotenv"
 import helmet from "helmet"
 import cors from "cors"
 import cookieParser from "cookie-parser"
+import { MongoMemoryServer } from "mongodb-memory-server-core" // Use ES module import
 
 dotenv.config()
 
@@ -60,6 +61,21 @@ app.get("/jpostcode", async (req, res) => {
       .json({ error: "An error occurred while fetching data." })
   }
 })
+
+// Start MongoDB Memory Server
+const mongoServer = new MongoMemoryServer()
+;(async () => {
+  try {
+    const uri = await mongoServer.getUri()
+    await prisma.$connect()
+    console.log("Connected to Prisma Client")
+    console.log("MongoDB URI:", uri)
+  } catch (error) {
+    console.error("Error connecting to Prisma Client:", error)
+  }
+})()
+
+// Define your API routes and other application logic here
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`)
